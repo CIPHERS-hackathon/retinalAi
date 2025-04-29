@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI for Retinal Disease Detection</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f4f7fc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .ai-name {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #4e73df;
+      margin-bottom: 20px;  /* Space between the AI name and the blue box */
+    }
+
+    .hero {
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(135deg, #4e73df, #1e3d73); /* Blue gradient */
+      color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+      transform: translateY(50px);
+      opacity: 0;
+      animation: fadeIn 1s ease-in forwards;
+    }
+
+    @keyframes fadeIn {
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      font-weight: bold;
+    }
+
+    .choices {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 30px;
+    }
+
+    .choice-card {
+      background: white;
+      padding: 20px;
+      width: 120px;
+      height: 150px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .choice-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .choice-card i {
+      font-size: 50px;
+      color: #4e73df;
+    }
+
+    .choice-card p {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    /* Simple Styling for the Login Page */
+    .login {
+      display: none;
+      text-align: center;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .login.active {
+      display: block;
+      animation: fadeIn 1s ease-in forwards;
+    }
+
+    .login h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    /* Sign In and Login buttons styling */
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    .buttons button {
+      padding: 10px 20px;
+      background-color: #28a745; /* Green for Sign In */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .buttons .login-btn {
+      background-color: #4e73df; /* Blue for Login */
+    }
+
+    .buttons button:hover {
+      background-color: #365f98;
+    }
+
+  </style>
+</head>
+<body>
+
+    <!-- AI Name Outside the Hero Section -->
+    <div class="ai-name">
+      RetinalQ
+    </div>
+  
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="choices">
+      <div class="choice-card" id="medical-student">
+        <i>🎓</i>
+        <p>Medical Student</p>
+      </div>
+      <div class="choice-card" id="doctor">
+        <i>🩺</i>
+        <p>Doctor</p>
+      </div>
+      <div class="choice-card" id="hospital-management">
+        <i>🏥</i>
+        <p>Hospital Management</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Login Section (hidden initially) -->
+  <div class="login" id="login">
+    <h2>Sign In</h2>
+    
+    <!-- Buttons for Sign In and Login -->
+    <div class="buttons">
+      <button class="login-btn" onclick="redirectToSignUp()">Create Account</button>
+      <button onclick="redirectToSignIn()">Sign In</button>
+    </div>
+  </div>
+
+  <script>
+    // Add event listeners for each role selection
+    document.getElementById('medical-student').addEventListener('click', () => showLogin('Medical Student'));
+    document.getElementById('doctor').addEventListener('click', () => showLogin('Doctor'));
+    document.getElementById('hospital-management').addEventListener('click', () => showLogin('Hospital Management'));
+
+    function showLogin(role) {
+      // Hide the hero section
+      document.querySelector('.hero').style.display = 'none';
+      
+      // Show the login section
+      const loginSection = document.getElementById('login');
+      loginSection.classList.add('active');
+      
+      // Optionally, change the login screen title or style based on role
+      loginSection.querySelector('h2').innerText = `Sign In as ${role}`;
+    }
+
+    function redirectToSignUp() {
+      // Redirect to sign up page
+      window.location.href = 'signup.html';  // Change to your actual sign up page URL
+    }
+
+    function redirectToSignIn() {
+      // Redirect to sign in page (user credentials login)
+      window.location.href = 'signin.html';  // Change to your actual sign in page URL
+    }
+  </script>
+
+</body>
+</html>
