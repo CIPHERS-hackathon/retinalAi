@@ -4,8 +4,8 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 import os
 
 # Set parameters for the image dataset
-train_dir = '/home/steve-allan-paul/Documents/data set/diabetic_retinopathy'  # Path to your training images
-val_dir = '/home/steve-allan-paul/Documents/data set/normal'  # Path to your validation images
+train_dir = 'D:\data set'  # Path to your training images
+val_dir = 'D:\data set\normal'  # Path to your validation images
 
 # Image data augmentation for training data
 train_datagen = ImageDataGenerator(

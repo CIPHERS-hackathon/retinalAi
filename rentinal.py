@@ -29,5 +29,5 @@ def classify_image(img_path):
     print(f"The image is classified as: {predicted_label}")
     
 # Example usage: Classifying a new image
-new_image_path = '/home/steve-allan-paul/Documents/data set/normal/8_left.jpg'
+new_image_path = "C:\\Users\\VATHSALYA\\OneDrive\\Documents\\college\\Hackathon\\Porjectfest\\retinal-disease-ai\\models\\data set\\validation\\normal"
 classify_image(new_image_path)
